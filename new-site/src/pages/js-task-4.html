@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/styles-task-4.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul class="nav__list">
+          <li><a href="../index.html">task-1</a></li>
+          <li><a href="../pages/task-2.html">task-2</a></li>
+          <li><a href="../pages/js-task-3.html">task-3</a></li>
+          <li><a href="#">task-4</a></li>
+        </ul>
+      </nav>
+    </header>
+    <section>
+      <form class="form">
+        <select name="route" id="route" required class="field">
+          <option selected disabled>Выберите маршрут</option>
+          <option value="из A в B">из A в B</option>
+          <option value="из B в A">из B в A</option>
+          <option value="из A в B и обратно в А">из A в B и обратно в А</option>
+        </select>
+        <select name="time" id="time" required>
+          <option selected disabled>Выберите точку и время отправления</option>
+          <option class="from__a from" value="18:00(из A в B)">
+            18:00(из A в B)
+          </option>
+          <option class="from__a" value="18:30(из A в B)">
+            18:30(из A в B)
+          </option>
+          <option class="from__a" value="18:45(из A в B)">
+            18:45(из A в B)
+          </option>
+          <option class="from__a" value="19:00(из A в B)">
+            19:00(из A в B)
+          </option>
+          <option class="from__a" value="19:15(из A в B)">
+            19:15(из A в B)
+          </option>
+          <option class="from__a" value="21:00(из A в B)">
+            21:00(из A в B)
+          </option>
+          <option class="from__b" value="18:30(из B в A)">
+            18:30(из B в A)
+          </option>
+          <option class="from__b" value="18:45(из B в A)">
+            18:45(из B в A)
+          </option>
+          <option class="from__b" value="19:00(из B в A)">
+            19:00(из B в A)
+          </option>
+          <option class="from__b" value="19:15(из B в A)">
+            19:15(из B в A)
+          </option>
+          <option class="from__b" value="19:35(из B в A)">
+            19:35(из B в A)
+          </option>
+          <option class="from__b" value="21:50(из B в A)">
+            21:50(из B в A)
+          </option>
+          <option class="from__b" value="21:55(из B в A)">
+            21:55(из B в A)
+          </option>
+        </select>
+        <select name="back" id="back">
+          <option selected disabled>
+            Выберите время обратного отправления
+          </option>
+          <option class="from__c" value="18:30(из B в A)">
+            18:30(из B в A)
+          </option>
+          <option class="from__c" value="18:45(из B в A)">
+            18:45(из B в A)
+          </option>
+          <option class="from__c" value="19:00(из B в A)">
+            19:00(из B в A)
+          </option>
+          <option class="from__c" value="19:15(из B в A)">
+            19:15(из B в A)
+          </option>
+          <option class="from__c" value="19:35(из B в A)">
+            19:35(из B в A)
+          </option>
+          <option class="from__c" value="21:50(из B в A)">
+            21:50(из B в A)
+          </option>
+          <option class="from__c" value="21:55(из B в A)">
+            21:55(из B в A)
+          </option>
+        </select>
+        <input
+          type="number"
+          id="num"
+          autocomplete="off"
+          placeholder="только цифры"
+        />
+        <button disabled id="sub" class="open_modal">Посчитать</button>
+      </form>
+    </section>
+    <div id="modal" class="modal bounceIn">
+      <div id="close_modal">+</div>
+      <p class="modal_txt"></p>
+    </div>
+  </body>
+  <script src="../js/task-4.js"></script>
+</html>

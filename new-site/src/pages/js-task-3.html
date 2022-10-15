@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body >
+        <header>
+      <nav>
+        <ul style="display: flex;list-style: none">
+          <li><a href="../index.html">task-1</a</li>
+          <li><a href="../pages/task-2.html">task-2</a></li>
+          <li><a href="#">task-3</a></li>
+          <li><a href="../pages/js-task-4.html">task-4</a></li>
+        </ul>
+      </nav>
+    </header>
+    <section>
+      <table border="1" style="border-collapse: collapse" class="table">
+        <tr>
+          <td>id</td>
+          <td>event_id</td>
+          <td>event_date</td>
+          <td>ticket_adult_price</td>
+          <td>ticket_adult_quantity</td>
+          <td>ticket_kid_price</td>
+          <td>ticket_kid_quantity</td>
+          <td>ticket_pref_price</td>
+          <td>ticket_pref_quantity</td>
+          <td>ticket_group_price(5 person)</td>
+          <td>ticket_group_quantity</td>
+          <td>barcode</td>
+          <td>user_id</td>
+          <td>equal_price</td>
+          <td>created</td>
+        </tr>
+      </table>
+    </section>
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+  <script>
+    const dataTickets = [
+      {
+        id: '1',
+        event_id: '003',
+        event_date: '2021-08-21 13:00:00',
+        ticket_adult_price: '700',
+        ticket_adult_quantity: '1',
+        ticket_kid_price: '450',
+        ticket_kid_quantity: '0',
+        isNotSpecial: true,
+
+        barcode: '11111111',
+        user_id: '00451',
+        equal_price: '700',
+        created: '2021-01-11 13:22:09',
+      },
+      {
+        id: '2',
+        event_id: '006',
+        event_date: '2021-07-29 18:00:00',
+        ticket_adult_price: '1000',
+        ticket_adult_quantity: '0',
+        ticket_kid_price: '800',
+        ticket_kid_quantity: '2',
+        isNotSpecial: true,
+
+        barcode: '22222222',
+        user_id: '00364',
+        equal_price: '1600',
+        created: '2021-01-12 16:62:08',
+      },
+      {
+        id: '3',
+        event_id: '003',
+        event_date: '2021-08-15 17:00:00',
+        ticket_adult_price: '700',
+        ticket_adult_quantity: '4',
+        ticket_kid_price: '450',
+        ticket_kid_quantity: '3',
+        isNotSpecial: true,
+
+        barcode: '33333333',
+        user_id: '00015',
+        equal_price: '4150',
+        created: '2021-01-13 10:08:45',
+      },
+      {
+        id: '4',
+        event_id: '004',
+        event_date: '2021-08-15 17:00:00',
+        ticket_adult_price: '700',
+        ticket_adult_quantity: '0',
+        ticket_kid_price: '450',
+        ticket_kid_quantity: '0',
+        isSpecial: true,
+        ticket_pref_price: '350',
+        ticket_pref_quantity: '1',
+        ticket_group_price: '200',
+        ticket_group_quantity: '1',
+        barcode: '44444444',
+        user_id: '00016',
+        equal_price: '1350',
+        created: '2021-01-13 10:08:45',
+      },
+      {
+        id: '5',
+        event_id: '007',
+        event_date: '2021-08-15 17:00:00',
+        ticket_adult_price: '700',
+        ticket_adult_quantity: '1',
+        ticket_kid_price: '450',
+        ticket_kid_quantity: '2',
+        isSpecial: true,
+        ticket_pref_price: '350',
+        ticket_pref_quantity: '1',
+        ticket_group_price: '200',
+        ticket_group_quantity: '0',
+        barcode: [
+          '5555555.00019.1.1',
+          '5555555.00019.2.1',
+          '5555555.00019.2.2',
+          '5555555.00019.3.1',
+        ],
+        user_id: '00019',
+        equal_price: '1950',
+        created: '2021-01-13 10:08:45',
+      },
+    ];
+    const template = Handlebars.compile(`{{#each this}}
+    <tr>
+        <td>{{id}}</td>
+        <td>{{event_id}}</td>
+        <td>{{event_date}}</td>
+        <td>{{ticket_adult_price}}</td>
+        <td>{{ticket_adult_quantity}}</td>
+        <td>{{ticket_kid_price}}</td>
+        <td>{{ticket_kid_quantity}}</td>
+                {{#if isSpecial}}
+    <td>{{ticket_pref_price}}</td>
+    <td>{{ticket_pref_quantity}}</td>
+    <td>{{ticket_group_price}}</td>
+    <td>{{ticket_group_quantity}}</td>
+            {{else if isNotSpecial}}
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    {{else}}        
+    {{/if}}      
+        <td>{{barcode}}</td>
+        <td>{{user_id}}</td>
+        <td>{{equal_price}}</td>
+        <td>{{created}}</td>
+    </tr>
+    {{/each}}`);
+
+    function createTicketsMarkup(tickets) {
+      return templateTickets(tickets);
+    }
+    const ticketsTable = document.querySelector('.table');
+    const ticketsMarkup = template(dataTickets);
+    ticketsTable.insertAdjacentHTML('beforeend', ticketsMarkup);
+  </script>
+</html>
